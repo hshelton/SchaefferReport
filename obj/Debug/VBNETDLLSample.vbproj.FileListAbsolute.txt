@@ -1,0 +1,23 @@
+E:\W-Series SDK\Samples\FKAttendDLLSample\VBNETSample\obj\Debug\VBNETDLLSample.vbproj.ResolveComReference.cache
+E:\W-Series SDK\Samples\FKAttendDLLSample\VBNETSample\bin\VBNETDLLSample.exe
+E:\W-Series SDK\Samples\FKAttendDLLSample\VBNETSample\bin\VBNETDLLSample.pdb
+E:\W-Series SDK\Samples\FKAttendDLLSample\VBNETSample\bin\VBNETDLLSample.xml
+E:\W-Series SDK\Samples\FKAttendDLLSample\VBNETSample\obj\Debug\VBNETDLLSample.vbprojResolveAssemblyReference.cache
+E:\W-Series SDK\Samples\FKAttendDLLSample\VBNETSample\obj\Debug\VBNETDLLSample.frmAdjust.resources
+E:\W-Series SDK\Samples\FKAttendDLLSample\VBNETSample\obj\Debug\VBNETDLLSample.frmBellInfo.resources
+E:\W-Series SDK\Samples\FKAttendDLLSample\VBNETSample\obj\Debug\VBNETDLLSample.frmEnroll.resources
+E:\W-Series SDK\Samples\FKAttendDLLSample\VBNETSample\obj\Debug\VBNETDLLSample.frmLog.resources
+E:\W-Series SDK\Samples\FKAttendDLLSample\VBNETSample\obj\Debug\VBNETDLLSample.frmMain.resources
+E:\W-Series SDK\Samples\FKAttendDLLSample\VBNETSample\obj\Debug\VBNETDLLSample.frmPasstimeInfo.resources
+E:\W-Series SDK\Samples\FKAttendDLLSample\VBNETSample\obj\Debug\VBNETDLLSample.frmProductData.resources
+E:\W-Series SDK\Samples\FKAttendDLLSample\VBNETSample\obj\Debug\VBNETDLLSample.frmSystemInfo.resources
+E:\W-Series SDK\Samples\FKAttendDLLSample\VBNETSample\obj\Debug\VBNETDLLSample.frmUserInfo.resources
+E:\W-Series SDK\Samples\FKAttendDLLSample\VBNETSample\obj\Debug\VBNETDLLSample.vbproj.GenerateResource.Cache
+E:\W-Series SDK\Samples\FKAttendDLLSample\VBNETSample\obj\Debug\VBNETDLLSample.exe
+E:\W-Series SDK\Samples\FKAttendDLLSample\VBNETSample\obj\Debug\VBNETDLLSample.xml
+E:\W-Series SDK\Samples\FKAttendDLLSample\VBNETSample\obj\Debug\VBNETDLLSample.pdb
+E:\W-Series SDK\Samples\FKAttendDLLSample\VBNETSample\obj\Debug\VBNETDLLSample.TimeCardReport.resources
+C:\Users\hayden\Desktop\Projects\SchaefferReport\obj\Debug\VBNETDLLSample.vbproj.ResolveComReference.cache
+C:\Users\hayden\Desktop\Projects\SchaefferReport\obj\Debug\VBNETDLLSample.exe
+C:\Users\hayden\Desktop\Projects\SchaefferReport\obj\Debug\VBNETDLLSample.xml
+C:\Users\hayden\Desktop\Projects\SchaefferReport\obj\Debug\VBNETDLLSample.pdb
