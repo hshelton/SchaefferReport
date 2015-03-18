@@ -36,6 +36,7 @@
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -50,6 +51,15 @@
     <Compile Include="BusinessObjects.cs" />
     <Compile Include="DeviceConnection.cs" />
     <Compile Include="ReportObjects.cs" />
+    <Compile Include="TimeCardDataSet1.cs">
+      <DependentUpon>TimeCardDataSet1.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TimeCardDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TimeCardDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="TimeDisplayForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,8 +74,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="PayPeriodReport.rdlc" />
-    <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="EmployeeReport.rdlc" />
     <EmbeddedResource Include="TimeDisplayForm.resx">
       <DependentUpon>TimeDisplayForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -91,6 +100,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="TimeCardDataSet1.xsc">
+      <DependentUpon>TimeCardDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="TimeCardDataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TimeCardDataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="TimeCardDataSet1.xss">
+      <DependentUpon>TimeCardDataSet1.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -105,6 +125,14 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Schaeffer Industries.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

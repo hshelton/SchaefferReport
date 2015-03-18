@@ -33,5 +33,16 @@ namespace TimeCard.Properties {
                 return ((string)(this["Schaeffer_IndustriesConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\"|DataDirectory|\\Schaeffer Industrie" +
+            "s.mdb\";Persist Security Info=True;Jet OLEDB:Database Password=godilove")]
+        public string Schaeffer_IndustriesConnectionString1 {
+            get {
+                return ((string)(this["Schaeffer_IndustriesConnectionString1"]));
+            }
+        }
     }
 }

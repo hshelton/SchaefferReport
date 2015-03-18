@@ -11,7 +11,7 @@ using System.Data.OleDb;
 
 namespace TimeCard
 {
-    public delegate void ConnectionEventHandler(object sender, object [] connSettings);
+
   
 
     public partial class InitForm : Form
@@ -35,32 +35,25 @@ namespace TimeCard
         /// </summary>
         private void GetDataFromDB()
         {
-            List<String> names = new List<String>();
-            String connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Schaeffer Industries.mdb; Jet OLEDB:Database Password=godilove;";
-            OleDbConnection dataConn = new OleDbConnection(connectionString);
-            dataConn.Open();
+            /*List<String> names = new List<String>();
+            //database mdb source is specified relative to bin/debug
+            //String connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Schaeffer Industries.mdb; Jet OLEDB:Database Password=godilove;";
 
-            OleDbDataReader reader = null;
+            TimeCardDataSet1 ds = new TimeCardDataSet1();
+            TimeCard.TimeCardDataSet1TableAdapters.EmployeesTableAdapter adpt = new TimeCardDataSet1TableAdapters.EmployeesTableAdapter();
+            adpt.Fill(ds.Employees);
 
-            //TODO: do we only want a list of 'active employees'?
-            var cmd = new OleDbCommand("select EmpName, EmployeeID from Employees where active = true order by EmpName", dataConn);
-            reader = cmd.ExecuteReader();
-
-            while (reader.Read())
+            foreach (var emp in ds.Employees)
             {
-                if (!NamesToPositions.Keys.Contains(reader["EmpName"].ToString().Trim()))
-                {
-                    NamesToPositions.Add(reader["EmpName"].ToString(), reader["EmployeeID"].ToString());
-
-                }
-
+                NamesToPositions.Add(emp.EmpName, emp.EmployeeID);
             }
+
+            
 
             foreach (string key in NamesToPositions.Keys)
             {
                 comboBox1.Items.Add(key);
-            }
-            dataConn.Close();
+            }*/
 
         }
 
@@ -89,12 +82,23 @@ namespace TimeCard
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             employeeName = comboBox1.SelectedItem.ToString();
-            employeeID = NamesToPositions[employeeName];
+            employeeID = comboBox1.SelectedValue.ToString();
+            var id = comboBox1.SelectedValue.ToString();
+            TimeCardDataSet1TableAdapters.EmployeesTableAdapter adpt = new TimeCardDataSet1TableAdapters.EmployeesTableAdapter();
+            var employeeTable = adpt.GetDataByEmployeeID(id);
+            var rows = employeeTable[0].GetDailyFilterRows();
 
-            if (!String.IsNullOrEmpty(employeeName))
+            if (employeeTable.Count > 0)
             {
                 ConnectButton.Enabled = true;
             }
+        }
+
+        private void InitForm_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'timeCardDataSet1.Employees' table. You can move, or remove it, as needed.
+            this.employeesTableAdapter.Fill(this.timeCardDataSet1.Employees);
+
         }
     }
 }

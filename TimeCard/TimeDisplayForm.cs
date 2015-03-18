@@ -16,13 +16,6 @@ namespace TimeCard
     {
         private EmployeeReportObject ERObject;
 
-
-        //number of columns in the data grid view
-        public int NumColsInGrid { get; set; }
-
-        //set to true once the connection with the device is made
-        bool ConnectionMade = false;
-
         /// <summary>
         /// Constructor
         /// </summary>
@@ -45,15 +38,17 @@ namespace TimeCard
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-       
-
             TodaysDateLabel.Text = DateTime.Today.ToShortDateString();
-           
-            ThreadPool.QueueUserWorkItem(new WaitCallback(pullDataFromDevice));
-
-
             this.DayReportObjectBindingSource.DataSource = ERObject.GetDayReports();
+            this.reportViewer1.RefreshReport();
+
+
+
+
+
+
+            //ThreadPool.QueueUserWorkItem(new WaitCallback(pullDataFromDevice));
+
             this.reportViewer1.RefreshReport();
         }
 

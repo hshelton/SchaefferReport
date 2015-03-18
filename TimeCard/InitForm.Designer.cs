@@ -28,10 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.ConnectButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.timeCardDataSet1 = new TimeCard.TimeCardDataSet1();
+            this.employeesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.employeesTableAdapter = new TimeCard.TimeCardDataSet1TableAdapters.EmployeesTableAdapter();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.timeCardDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // ConnectButton
@@ -56,12 +62,29 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DataSource = this.employeesBindingSource;
+            this.comboBox1.DisplayMember = "EmpName";
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(3, 61);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(366, 21);
             this.comboBox1.TabIndex = 0;
+            this.comboBox1.ValueMember = "EmployeeID";
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // timeCardDataSet1
+            // 
+            this.timeCardDataSet1.DataSetName = "TimeCardDataSet1";
+            this.timeCardDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // employeesBindingSource
+            // 
+            this.employeesBindingSource.DataMember = "Employees";
+            this.employeesBindingSource.DataSource = this.timeCardDataSet1;
+            // 
+            // employeesTableAdapter
+            // 
+            this.employeesTableAdapter.ClearBeforeFill = true;
             // 
             // InitForm
             // 
@@ -72,7 +95,10 @@
             this.Controls.Add(this.ConnectButton);
             this.Name = "InitForm";
             this.Text = "Select an Employee";
+            this.Load += new System.EventHandler(this.InitForm_Load);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.timeCardDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -82,5 +108,8 @@
         private System.Windows.Forms.Button ConnectButton;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ComboBox comboBox1;
+        private TimeCardDataSet1 timeCardDataSet1;
+        private System.Windows.Forms.BindingSource employeesBindingSource;
+        private TimeCardDataSet1TableAdapters.EmployeesTableAdapter employeesTableAdapter;
     }
 }
