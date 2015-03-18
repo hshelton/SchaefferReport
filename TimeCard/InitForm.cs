@@ -17,6 +17,10 @@ namespace TimeCard
     public partial class InitForm : Form
     {
         public string employeeName { get; set; }
+        public string employeeID { get; set; }
+
+        public Dictionary<string, string> NamesToPositions = new Dictionary<string, string>();
+
 
         public InitForm()
         {
@@ -38,16 +42,24 @@ namespace TimeCard
 
             OleDbDataReader reader = null;
 
-            //TODO: reference real schema
-            var cmd = new OleDbCommand("select FirstName, LastName from Employees order by LastName", dataConn);
+            //TODO: do we only want a list of 'active employees'?
+            var cmd = new OleDbCommand("select EmpName, EmployeeID from Employees where active = true order by EmpName", dataConn);
             reader = cmd.ExecuteReader();
 
             while (reader.Read())
             {
-                names.Add(reader["FirstName"].ToString());
-                comboBox1.Items.Add(reader["LastName"].ToString() + ", " + reader["FirstName"]);
+                if (!NamesToPositions.Keys.Contains(reader["EmpName"].ToString().Trim()))
+                {
+                    NamesToPositions.Add(reader["EmpName"].ToString(), reader["EmployeeID"].ToString());
+
+                }
+
             }
-     
+
+            foreach (string key in NamesToPositions.Keys)
+            {
+                comboBox1.Items.Add(key);
+            }
             dataConn.Close();
 
         }
@@ -62,9 +74,11 @@ namespace TimeCard
             String[] args = new String[5];
 
             args[0] = employeeName;
-            //past display form useful arguments pulled from the database
-           var displayForm = new TimeDisplayForm(args);
-           displayForm.Show(); 
+            args[1] = employeeID;
+
+            //create a new display form, passing in employeeName and employeeID
+            var displayForm = new TimeDisplayForm(args);
+            displayForm.Show();
         }
 
         /// <summary>
@@ -75,6 +89,7 @@ namespace TimeCard
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             employeeName = comboBox1.SelectedItem.ToString();
+            employeeID = NamesToPositions[employeeName];
 
             if (!String.IsNullOrEmpty(employeeName))
             {
