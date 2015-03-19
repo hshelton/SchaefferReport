@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.DayReportObjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.TodaysDateLabel = new System.Windows.Forms.Label();
@@ -39,15 +38,12 @@
             this.EnrollLabel = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            ((System.ComponentModel.ISupportInitialize)(this.DayReportObjectBindingSource)).BeginInit();
+            this.DayReportObjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DayReportObjectBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // DayReportObjectBindingSource
-            // 
-            this.DayReportObjectBindingSource.DataSource = typeof(TimeCard.DayReportObject);
             // 
             // tableLayoutPanel1
             // 
@@ -114,14 +110,19 @@
             // 
             // reportViewer1
             // 
+            this.reportViewer1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             reportDataSource1.Name = "DataSet1";
             reportDataSource1.Value = this.DayReportObjectBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "TimeCard.EmployeeReport.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(3, 3);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(918, 306);
+            this.reportViewer1.Size = new System.Drawing.Size(1367, 388);
             this.reportViewer1.TabIndex = 0;
+            // 
+            // DayReportObjectBindingSource
+            // 
+            this.DayReportObjectBindingSource.DataSource = typeof(TimeCard.DayReportObject);
             // 
             // TimeDisplayForm
             // 
@@ -134,11 +135,11 @@
             this.Text = "View Report";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DayReportObjectBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DayReportObjectBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
