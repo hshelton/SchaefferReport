@@ -61,12 +61,15 @@ namespace TimeCard
         /// <param name="dbKey">employeeID </param>
         public void generateReport(string dbKey)
         {
+
             String connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Schaeffer Industries.mdb; Jet OLEDB:Database Password=godilove;";
 
             OleDbConnection dataConn = new OleDbConnection(connectionString);
             dataConn.Open();
 
             OleDbDataReader reader = null;
+
+
 
             //get week one and week two in order to grab transactions for those time periods
             var getWeeks = new OleDbCommand("select DISTINCT Week from WeeklyTotal", dataConn);
@@ -79,28 +82,50 @@ namespace TimeCard
             //from 1 week prior to 1st week - subtract one week from End of 1st week 
             DateTime Week1StartTime = week1End.Subtract(new TimeSpan(7, 0, 0, 0, 0));
 
+       
+            //get entries in transactions table for individual days of first week
+            TimeCardDataSet1TableAdapters.TransactionsTableAdapter TransactionAdapter = new TimeCardDataSet1TableAdapters.TransactionsTableAdapter();
+            var transactionTable1 = TransactionAdapter.GetDataByEnrollNoAndTimeRange(dbKey, Week1StartTime, week1End);
 
-            string logQuery = String.Format("select LogTime from Transactions where EnrollNo like {0} and LogTime between #{1}# and #{2}#", dbKey, Week1StartTime, week1End);
-            var transactionGetCommand = new OleDbCommand(logQuery, dataConn);
-            reader = transactionGetCommand.ExecuteReader();
-                while(reader.Read())
+            DayReportObject currentObject = new DayReportObject { Actual_Time = "" };
+            DateTime currentDay = transactionTable1[0].LogDate;
+
+            for(int i = 0; i < transactionTable1.Count; i++)
+            {
+                var dailyTime = transactionTable1[i].LogTime;
+                currentObject.Actual_Time = currentObject.Actual_Time + dailyTime + " ";
+                var currentDate = transactionTable1[i].LogTime;
+
+                if(currentDay != currentDate) //then we're done collecting this day's data
                 {
-                    var what = reader["LogTime"];
+                    e_days.Add(currentObject);
+                    currentObject = new DayReportObject {Actual_Time = " "};
+                    currentDay = currentDate;
+                }
+            }
 
+
+                for (int i = 0; i < transactionTable1.Count; i++)
+                {
+                   var dailyTime = transactionTable1[i].LogTime;
+                   
+                   string transactionType = transactionTable1[i].InOutMode;
+                   //append the time
+                   currentObject.Actual_Time = currentObject.Actual_Time + dailyTime + " ";
+                   
+                    //if its the next day then add current
+                   if (currentDay!= 
+                   {
+                       e_days.Add(current);
+                       current = new DayReportObject { Actual_Time = "" };
+                   }
                 }
             
-            //get entries in transactions table for individual days of first week
 
-            
-
-
-
-
-
-
+       
+   
             var cmd = new OleDbCommand("select wLOW, WOT, Week from WeeklyTotal where wEmployeeID like " + dbKey, dataConn);
             reader = cmd.ExecuteReader();
-
             while (reader.Read())
             {
                 var wLow = reader["wLOW"].ToString();
