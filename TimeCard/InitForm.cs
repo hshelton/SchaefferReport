@@ -16,62 +16,9 @@ namespace TimeCard
 
     public partial class InitForm : Form
     {
-        public string employeeName { get; set; }
-        public string employeeID { get; set; }
-
-        public Dictionary<string, string> NamesToPositions = new Dictionary<string, string>();
-
-
         public InitForm()
         {
             InitializeComponent();
-            GetDataFromDB();
-            ConnectButton.Enabled = false;
-
-        }
-
-        /// <summary>
-        /// Get a list of names from the database
-        /// </summary>
-        private void GetDataFromDB()
-        {
-            /*List<String> names = new List<String>();
-            //database mdb source is specified relative to bin/debug
-            //String connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=Schaeffer Industries.mdb; Jet OLEDB:Database Password=godilove;";
-
-            TimeCardDataSet1 ds = new TimeCardDataSet1();
-            TimeCard.TimeCardDataSet1TableAdapters.EmployeesTableAdapter adpt = new TimeCardDataSet1TableAdapters.EmployeesTableAdapter();
-            adpt.Fill(ds.Employees);
-
-            foreach (var emp in ds.Employees)
-            {
-                NamesToPositions.Add(emp.EmpName, emp.EmployeeID);
-            }
-
-            
-
-            foreach (string key in NamesToPositions.Keys)
-            {
-                comboBox1.Items.Add(key);
-            }*/
-
-        }
-
-        /// <summary>
-        /// Display the report form
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ConnectButton_Click(object sender, EventArgs e)
-        {
-            String[] args = new String[5];
-
-            args[0] = employeeName;
-            args[1] = employeeID;
-
-            //create a new display form, passing in employeeName and employeeID
-            var displayForm = new TimeDisplayForm(args);
-            displayForm.Show();
         }
 
         /// <summary>
@@ -81,23 +28,45 @@ namespace TimeCard
         /// <param name="e"></param>
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            employeeName = comboBox1.SelectedItem.ToString();
-            employeeID = comboBox1.SelectedValue.ToString();
-            var id = comboBox1.SelectedValue.ToString();
-            TimeCardDataSet1TableAdapters.EmployeesTableAdapter adpt = new TimeCardDataSet1TableAdapters.EmployeesTableAdapter();
-            var employeeTable = adpt.GetDataByEmployeeID(id);
-            var rows = employeeTable[0].GetDailyFilterRows();
+            // get the selected employee
+            var employee = (from ep in this.timeCardDataSet1.Employees 
+                            where ep.EmployeeID == comboBox1.SelectedValue.ToString() 
+                            select ep).First();
 
-            if (employeeTable.Count > 0)
+            // retrieve the reports for that employee
+            var report = new EmployeeReportObject(employee.EmployeeID).GetDayReports();
+
+            // add transactions to the report
+            this.reportViewer1.LocalReport.DataSources.Add(
+                new Microsoft.Reporting.WinForms.ReportDataSource("TransactionSet", report));
+
+            // create object for employee detail
+            var emps = new List<EmployeeDetails>();
+            emps.Add(new EmployeeDetails
             {
-                ConnectButton.Enabled = true;
-            }
+                EmployeeID = employee.EmployeeID,
+                EmpName = employee.EmpName,
+                StartDate = DateTime.Now.ToShortDateString(),
+                EndDate = DateTime.Now.AddDays(7).ToShortDateString()
+            });
+
+            // add the employee detail to the report
+            this.reportViewer1.LocalReport.DataSources.Add(
+                new Microsoft.Reporting.WinForms.ReportDataSource("EmployeeSet", (object)emps));
+
+            // refresh the report
+            this.reportViewer1.RefreshReport();
         }
 
         private void InitForm_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'timeCardDataSet1.Employees' table. You can move, or remove it, as needed.
             this.employeesTableAdapter.Fill(this.timeCardDataSet1.Employees);
+            this.reportViewer1.RefreshReport();
+        }
+
+        private void reportViewer1_Load(object sender, EventArgs e)
+        {
 
         }
     }

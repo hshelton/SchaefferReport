@@ -36,8 +36,14 @@ namespace TimeCard
         {
             
         }
+    }
 
-
+    public class EmployeeDetails
+    {
+        public string EmployeeID { get; set; }
+        public string EmpName { get; set; }
+        public string StartDate { get; set; }
+        public string EndDate { get; set; }
     }
 
     /// <summary>

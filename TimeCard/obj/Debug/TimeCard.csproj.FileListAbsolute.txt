@@ -51,3 +51,17 @@ C:\Users\hayden\Desktop\Projects\SchaefferReport\TimeCard\obj\Debug\TimeCard.csp
 C:\Users\hayden\Desktop\Projects\SchaefferReport\TimeCard\obj\Debug\RdlCompile.cache
 C:\Users\hayden\Desktop\Projects\SchaefferReport\TimeCard\obj\Debug\RdlCompile.compiled
 C:\Users\hayden\Desktop\Projects\SchaefferReport\TimeCard\bin\Debug\Schaeffer Industries.mdb
+E:\Code\CustomerProjects\schaeffer\SchaefferReport\TimeCard\bin\Debug\TimeCard.exe.config
+E:\Code\CustomerProjects\schaeffer\SchaefferReport\TimeCard\obj\Debug\Interop.FKAttendLib.dll
+E:\Code\CustomerProjects\schaeffer\SchaefferReport\TimeCard\obj\Debug\TimeCard.csproj.ResolveComReference.cache
+E:\Code\CustomerProjects\schaeffer\SchaefferReport\TimeCard\obj\Debug\TimeCard.exe
+E:\Code\CustomerProjects\schaeffer\SchaefferReport\TimeCard\obj\Debug\TimeCard.pdb
+E:\Code\CustomerProjects\schaeffer\SchaefferReport\TimeCard\bin\Debug\Schaeffer Industries.mdb
+E:\Code\CustomerProjects\schaeffer\SchaefferReport\TimeCard\bin\Debug\TimeCard.exe
+E:\Code\CustomerProjects\schaeffer\SchaefferReport\TimeCard\bin\Debug\TimeCard.pdb
+E:\Code\CustomerProjects\schaeffer\SchaefferReport\TimeCard\obj\Debug\TimeCard.csprojResolveAssemblyReference.cache
+E:\Code\CustomerProjects\schaeffer\SchaefferReport\TimeCard\obj\Debug\TimeCard.InitForm.resources
+E:\Code\CustomerProjects\schaeffer\SchaefferReport\TimeCard\obj\Debug\TimeCard.Properties.Resources.resources
+E:\Code\CustomerProjects\schaeffer\SchaefferReport\TimeCard\obj\Debug\TimeCard.csproj.GenerateResource.Cache
+E:\Code\CustomerProjects\schaeffer\SchaefferReport\TimeCard\obj\Debug\RdlCompile.cache
+E:\Code\CustomerProjects\schaeffer\SchaefferReport\TimeCard\obj\Debug\RdlCompile.compiled
