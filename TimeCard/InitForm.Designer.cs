@@ -44,6 +44,7 @@
             // DayReportObjectBindingSource
             // 
             this.DayReportObjectBindingSource.DataSource = typeof(TimeCard.DayReportObject);
+            this.DayReportObjectBindingSource.CurrentChanged += new System.EventHandler(this.DayReportObjectBindingSource_CurrentChanged);
             // 
             // comboBox1
             // 
@@ -52,10 +53,9 @@
             this.comboBox1.DataSource = this.employeesBindingSource;
             this.comboBox1.DisplayMember = "EmpName";
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(13, 14);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.comboBox1.Location = new System.Drawing.Point(9, 9);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(1039, 28);
+            this.comboBox1.Size = new System.Drawing.Size(1010, 21);
             this.comboBox1.TabIndex = 0;
             this.comboBox1.ValueMember = "EmployeeID";
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
@@ -76,26 +76,27 @@
             // 
             // reportViewer1
             // 
-            this.reportViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.reportViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             reportDataSource1.Name = "DataSet1";
             reportDataSource1.Value = this.DayReportObjectBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "TimeCard.EmployeeReport.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(13, 50);
+            this.reportViewer1.Location = new System.Drawing.Point(9, 49);
+            this.reportViewer1.Margin = new System.Windows.Forms.Padding(2);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(1039, 788);
+            this.reportViewer1.Size = new System.Drawing.Size(1009, 510);
             this.reportViewer1.TabIndex = 1;
             this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
             // 
             // InitForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1065, 850);
+            this.ClientSize = new System.Drawing.Size(1026, 566);
             this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.comboBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "InitForm";
             this.Text = "Select an Employee";
             this.Load += new System.EventHandler(this.InitForm_Load);
