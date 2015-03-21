@@ -65,6 +65,7 @@ namespace TimeCard
 
         /*************************************
        //IMPORTANT - this method throws exceptions for certain employees - like it works fine for Demetrius Green, but fails on some others
+         * I think the ones that it fails on are those who haven't worked in that time period
         /**********************************/
         public void generateReport(string dbKey)
         {
