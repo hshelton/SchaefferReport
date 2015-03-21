@@ -66,6 +66,9 @@ namespace TimeCard
         /*************************************
        //IMPORTANT - this method throws exceptions for certain employees - like it works fine for Demetrius Green, but fails on some others
          * I think the ones that it fails on are those who haven't worked in that time period
+         * Looking back on this I should have done more of the work in my queries, instead of doing simple queries and parsing data from my results. 
+         * I just realized that all the data I get from other sources could be pulled from the FlexibleTransactionCom view.
+         *
         /**********************************/
         public void generateReport(string dbKey)
         {
@@ -162,7 +165,6 @@ namespace TimeCard
 
         }
 
-
         private string GetAccumalatedTimeForDay(string dbKey, DateTime day)
         {
             //this will be used to get hourly totals for given days - Time ranges of work corresponding to clock ins
@@ -193,6 +195,8 @@ namespace TimeCard
         {
             return e_days;
         }
+
+
 
 
 
