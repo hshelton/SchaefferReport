@@ -30,20 +30,20 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.DayReportObjectBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.JoshuaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.employeesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.timeCardDataSet1 = new TimeCard.TimeCardDataSet1();
             this.employeesTableAdapter = new TimeCard.TimeCardDataSet1TableAdapters.EmployeesTableAdapter();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            ((System.ComponentModel.ISupportInitialize)(this.DayReportObjectBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.JoshuaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeCardDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
-            // DayReportObjectBindingSource
+            // JoshuaBindingSource
             // 
-            this.DayReportObjectBindingSource.DataSource = typeof(TimeCard.DayReportObject);
+            this.JoshuaBindingSource.DataSource = typeof(TimeCard.Joshua);
             // 
             // comboBox1
             // 
@@ -76,10 +76,11 @@
             // 
             // reportViewer1
             // 
-            this.reportViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.reportViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             reportDataSource1.Name = "DataSet1";
-            reportDataSource1.Value = this.DayReportObjectBindingSource;
+            reportDataSource1.Value = this.JoshuaBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "TimeCard.EmployeeReport.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(13, 50);
@@ -99,7 +100,7 @@
             this.Name = "InitForm";
             this.Text = "Select an Employee";
             this.Load += new System.EventHandler(this.InitForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DayReportObjectBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.JoshuaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeCardDataSet1)).EndInit();
             this.ResumeLayout(false);
@@ -113,6 +114,6 @@
         private System.Windows.Forms.BindingSource employeesBindingSource;
         private TimeCardDataSet1TableAdapters.EmployeesTableAdapter employeesTableAdapter;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-        private System.Windows.Forms.BindingSource DayReportObjectBindingSource;
+        private System.Windows.Forms.BindingSource JoshuaBindingSource;
     }
 }

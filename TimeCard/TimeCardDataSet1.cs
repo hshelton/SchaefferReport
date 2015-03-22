@@ -2,6 +2,9 @@
     
     
     public partial class TimeCardDataSet1 {
+        partial class DataTable2DataTable
+        {
+        }
     }
 }
 

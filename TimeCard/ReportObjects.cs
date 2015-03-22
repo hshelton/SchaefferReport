@@ -5,20 +5,40 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.OleDb;
 using TimeCard.TimeCardDataSet1TableAdapters;
+using System.Globalization;
 
 namespace TimeCard
 {
     // a day contains all the relevent information for a single day
-    public class DayReportObject
+    /*public class Joshua
     {
-        public string Date { get; set; }
-        public string Scheduled_Time { get; set; }
-        public string Actual_Time { get; set; }
-        public string Pay_Time { get; set; }
-        public string OT {get; set;}
-        public string D { get; set; }
-        public string Total_hours { get; set; }
+        public DateTime Date { get; set; }
+        public string InTime { get; set; }
+        public string OutTime { get; set; }
+        public string ScheduledTime { get; set; }
+        public string ActualTime { get; set; }
+        public string PayTime { get; set; }
+        public double LOW { get; set; }
+        public double OT { get; set; }
+        public double D { get; set; }
         public string Comments { get; set; }
+        
+        public int Week
+        {
+            get
+            {
+                CultureInfo ciGetNumber = CultureInfo.CurrentCulture;
+                return ciGetNumber.Calendar.GetWeekOfYear(Date, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday); 
+            }
+        }
+
+        public double TWH
+        {
+            get
+            {
+                return LOW + OT + D;
+            }
+        }
 
 
         /// <summary>
@@ -26,15 +46,47 @@ namespace TimeCard
         /// </summary>
         /// <param name="_date"></param>
         /// <param name="_scheduledTime"></param>
-        public DayReportObject(string _date, string _scheduledTime)
+        public Joshua(DateTime _date, string _scheduledTime)
         {
             Date = _date;
-            Scheduled_Time = _scheduledTime;
+            ScheduledTime = _scheduledTime;
         }
 
-        public DayReportObject()
+        public Joshua()
         {
             
+        }
+    }*/
+
+    public class Joshua
+    {
+        public DateTime Date { get; set; }
+        public string InTime { get; set; }
+        public string OutTime { get; set; }
+        public string ScheduledTime { get; set; }
+        public string ActualTime { get; set; }
+        public string PayTime { get; set; }
+        public double LOW { get; set; }
+        public double OT { get; set; }
+        public double D { get; set; }
+        public string Comments { get; set; }
+        public bool isUtah { get; set; }
+
+        public int Week
+        {
+            get
+            {
+                CultureInfo ciGetNumber = CultureInfo.CurrentCulture;
+                return ciGetNumber.Calendar.GetWeekOfYear(Date, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
+            }
+        }
+
+        public double TWH
+        {
+            get
+            {
+                return LOW + D;
+            }
         }
     }
 
@@ -47,30 +99,29 @@ namespace TimeCard
     }
 
     /// <summary>
-    /// Employee Report Objects are basically a list of DayReportObjects. DayReportObjects contain the core data that is displayed
+    /// Employee Report Objects are basically a list of Joshuas. Joshuas contain the core data that is displayed
     /// </summary>
     public class EmployeeReportObject
     {
-        private List<DayReportObject> e_days;
+        private List<Joshua> e_days;
+        private TimeCardDataSet1.EmployeesRow _employee;
 
 
-        public EmployeeReportObject(string employeeID)
+        public EmployeeReportObject(TimeCardDataSet1.EmployeesRow employee)
         {
-            e_days = new List<DayReportObject>();
-            generateReport(employeeID);
+            e_days = new List<Joshua>();
+            _employee = employee;
+            generateReport(employee);
         }
 
 
         /// <summary>
-        /// Uses the dbKey to run queries on the database. These queries each create new DayReportObjects, which are then
+        /// Uses the dbKey to run queries on the database. These queries each create new Joshuas, which are then
         /// added to e_days. edays are the objects used to generate the report
         /// </summary>
         /// <param name="dbKey">employeeID </param>
-        public void generateReport(string dbKey)
+        public void generateReport(TimeCardDataSet1.EmployeesRow employee)
         {
-
-            TimeCardDataSet1TableAdapters.EmployeesTableAdapter adpt = new TimeCardDataSet1TableAdapters.EmployeesTableAdapter();
-            var employeeTable = adpt.GetDataByEmployeeID(dbKey);
 
             //get week one and week two in order to grab transactions for those time periods
 
@@ -84,9 +135,9 @@ namespace TimeCard
 
             //get entries in transactions table for individual days of first week
             TimeCardDataSet1TableAdapters.TransactionsTableAdapter TransactionAdapter = new TimeCardDataSet1TableAdapters.TransactionsTableAdapter();
-            var transactionTable1 = TransactionAdapter.GetDataByEnrollNoAndTimeRange(dbKey, Week1StartTime, week1End);
+            var transactionTable1 = TransactionAdapter.GetDataByEnrollNoAndTimeRange(employee.EmployeeID, Week1StartTime, week1End);
 
-            DayReportObject currentObject = new DayReportObject { Actual_Time = "" };
+            Joshua currentObject = new Joshua { ActualTime = "" };
  
 
             DateTime CurrentObjectDate;
@@ -105,18 +156,18 @@ namespace TimeCard
             {
                 DateTime rowDate = transactionTable1[i].LogDate;
             
-                if (rowDate.CompareTo(CurrentObjectDate) != 0) //if it's a new day it should go on the next DayReportObject
+                if (rowDate.CompareTo(CurrentObjectDate) != 0) //if it's a new day it should go on the next Joshua
                 {
-                    currentObject.Date = CurrentObjectDate.ToShortDateString();
+                    currentObject.Date = CurrentObjectDate;
                     e_days.Add(currentObject);
 
-                    currentObject = new DayReportObject { Actual_Time = transactionTable1[i].LogTime.ToShortTimeString() + "\n" };
+                    currentObject = new Joshua { ActualTime = transactionTable1[i].LogTime.ToShortTimeString() + "\n" };
                     CurrentObjectDate = transactionTable1[i].LogDate; //the new currentobject date is the newest date encountered
                  
                 }
-                else //add it to the same DayReportObject
+                else //add it to the same Joshua
                 {
-                    currentObject.Actual_Time = currentObject.Actual_Time + transactionTable1[i].LogTime.ToShortTimeString() + "\n";
+                    currentObject.ActualTime = currentObject.ActualTime + transactionTable1[i].LogTime.ToShortTimeString() + "\n";
          
                 }
             }
@@ -124,7 +175,7 @@ namespace TimeCard
           //  currentObject.Date = lastDateHolder.Date.ToString().Substring(0, lastDateHolder.Date.ToString().IndexOf(' '));
             e_days.Add(currentObject); //Add that last day object
 
-           TimeCardDataSet1.WeeklyTotalDataTable weekTB = weeklyAdapter.GetDataByEmployeeID(dbKey);
+           TimeCardDataSet1.WeeklyTotalDataTable weekTB = weeklyAdapter.GetDataByEmployeeID(employee.EmployeeID);
 
             //display weekly totals for first week
             AddWeekAsEntry(weekTB, 0);
@@ -133,7 +184,7 @@ namespace TimeCard
 
             /* BUILD SECOND WEEK **********************************************************/
 
-            DayReportObject currentObject2 = new DayReportObject { Actual_Time = "" };
+            Joshua currentObject2 = new Joshua { ActualTime = "" };
 
             try
             {
@@ -144,26 +195,26 @@ namespace TimeCard
                 Console.WriteLine(e.Message);
                 return;
             }
-            transactionTable1 = TransactionAdapter.GetDataByEnrollNoAndTimeRange(dbKey, week1End, week2End);
+            transactionTable1 = TransactionAdapter.GetDataByEnrollNoAndTimeRange(employee.EmployeeID, week1End, week2End);
             //iterate through the transaction table results
             for (int i = 0; i < transactionTable1.Count; i++)
             {
                 DateTime rowDate = transactionTable1[i].LogDate;
-                if (rowDate.CompareTo(CurrentObjectDate) != 0) //if it's a new day it should go on the next DayReportObject
+                if (rowDate.CompareTo(CurrentObjectDate) != 0) //if it's a new day it should go on the next Joshua
                 {
-                    currentObject.Date = CurrentObjectDate.ToShortDateString();
+                    currentObject.Date = CurrentObjectDate;
                     e_days.Add(currentObject);
 
-                    currentObject = new DayReportObject { Actual_Time = transactionTable1[i].LogTime.ToShortTimeString() + "\n" };
+                    currentObject = new Joshua { ActualTime = transactionTable1[i].LogTime.ToShortTimeString() + "\n" };
                     CurrentObjectDate = transactionTable1[i].LogDate; //the new currentobject date is the newest date encountered
                 }
-                else //add it to the same DayReportObject
+                else //add it to the same Joshua
                 {
-                    currentObject.Actual_Time = currentObject.Actual_Time + transactionTable1[i].LogTime.ToShortTimeString() + "\n";
+                    currentObject.ActualTime = currentObject.ActualTime + transactionTable1[i].LogTime.ToShortTimeString() + "\n";
                 }
             }
 
-            currentObject.Date = transactionTable1[transactionTable1.Count - 1].LogDate.ToShortDateString();
+            currentObject.Date = transactionTable1[transactionTable1.Count - 1].LogDate;
             e_days.Add(currentObject); //Add that last day object
 
 
@@ -183,12 +234,12 @@ namespace TimeCard
             DateTime week = tbl[weekNo].Week;
             //format week nicely.
             string WeekTrimmed = week.ToString().Substring(0, week.ToString().IndexOf(' '));
-            e_days.Add(new DayReportObject { Date = "Pay Week Ending: " + WeekTrimmed, OT = WOT, Total_hours = wLow });
+            //e_days.Add(new Joshua { Date = "Pay Week Ending: " + WeekTrimmed, OT = WOT, TotalHours = wLow });
 
 
         }
 
-        public List<DayReportObject> GetDayReports()
+        public List<Joshua> GetDayReports()
         {
 
             return e_days;
