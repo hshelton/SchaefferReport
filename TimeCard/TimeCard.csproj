@@ -84,6 +84,7 @@
     <Compile Include="BusinessObjects.cs" />
     <Compile Include="DeviceConnection.cs" />
     <Compile Include="ReportObjects.cs" />
+    <Compile Include="Temp.cs" />
     <Compile Include="TimeCardDataSet1.cs">
       <DependentUpon>TimeCardDataSet1.xsd</DependentUpon>
       <SubType>Component</SubType>

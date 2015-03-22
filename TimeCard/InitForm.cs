@@ -12,9 +12,6 @@ using System.Globalization;
 
 namespace TimeCard
 {
-
-  
-
     public partial class InitForm : Form
     {
         public InitForm()
@@ -133,6 +130,11 @@ namespace TimeCard
         }
 
         private void reportViewer1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DayReportObjectBindingSource_CurrentChanged(object sender, EventArgs e)
         {
 
         }
