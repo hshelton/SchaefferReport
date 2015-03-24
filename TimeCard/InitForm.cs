@@ -26,6 +26,11 @@ namespace TimeCard
         /// <param name="e"></param>
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            GenerateReport();
+        }
+
+        private void GenerateReport()
+        {
             if (comboBox1 != null && comboBox1.SelectedItem != null)
             {
                 // get the selected employee
@@ -65,7 +70,7 @@ namespace TimeCard
 
                 // handle over time depending on california employees
                 var dates = (from r in report select r.Date).Distinct();
-                var firstWeek = report.Min(m => m.Week);
+                //var firstWeek = report.Min(m => m.Week);
 
                 if (isCalifornia)
                 {
@@ -119,6 +124,7 @@ namespace TimeCard
 
                 // refresh the report
                 this.reportViewer1.RefreshReport();
+                
             }
         }
 
@@ -126,17 +132,45 @@ namespace TimeCard
         {
             // TODO: This line of code loads data into the 'timeCardDataSet1.Employees' table. You can move, or remove it, as needed.
             this.employeesTableAdapter.Fill(this.timeCardDataSet1.Employees);
-            this.reportViewer1.RefreshReport();
+            //this.reportViewer1.RefreshReport();
+            comboBox1_SelectedIndexChanged(this, new EventArgs());
         }
 
         private void reportViewer1_Load(object sender, EventArgs e)
         {
-
+            GenerateReport();
         }
 
         private void DayReportObjectBindingSource_CurrentChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void employeesBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            System.Environment.Exit(0);
+        }
+
+        private void printSelectedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.reportViewer1.PrintDialog();
+        }
+
+        private void saveSelectedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Microsoft.Reporting.WinForms.RenderingExtension[] extensions = this.reportViewer1.LocalReport.ListRenderingExtensions();
+            var first = extensions[0];
+            this.reportViewer1.ExportDialog(first);
+        }
+
+        private void quitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Environment.Exit(0);
         }
     }
 }

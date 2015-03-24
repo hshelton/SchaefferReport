@@ -18,9 +18,16 @@ namespace TimeCard
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             InitForm view = new InitForm();
-                
 
-            Application.Run(view);
+            //imediately terminate on an exception
+            try
+            {
+                Application.Run(view);
+            }
+            catch
+            {
+                System.Environment.Exit(20);
+            }
         }
 
         private static void ConnectionEstablished(object e, object[] args)

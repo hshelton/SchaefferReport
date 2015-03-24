@@ -84,7 +84,6 @@
     <Compile Include="BusinessObjects.cs" />
     <Compile Include="DeviceConnection.cs" />
     <Compile Include="ReportObjects.cs" />
-    <Compile Include="Temp.cs" />
     <Compile Include="TimeCardDataSet1.cs">
       <DependentUpon>TimeCardDataSet1.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -139,7 +138,6 @@
     <None Include="TimeCardDataSet1.xss">
       <DependentUpon>TimeCardDataSet1.xsd</DependentUpon>
     </None>
-    <None Include="TimeCard_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
