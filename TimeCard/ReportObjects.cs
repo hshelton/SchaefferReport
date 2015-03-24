@@ -6,57 +6,11 @@ using System.Threading.Tasks;
 using System.Data.OleDb;
 using TimeCard.TimeCardDataSet1TableAdapters;
 using System.Globalization;
+using System.Data;
 
 namespace TimeCard
 {
-    // a day contains all the relevent information for a single day
-    /*public class Joshua
-    {
-        public DateTime Date { get; set; }
-        public string InTime { get; set; }
-        public string OutTime { get; set; }
-        public string ScheduledTime { get; set; }
-        public string ActualTime { get; set; }
-        public string PayTime { get; set; }
-        public double LOW { get; set; }
-        public double OT { get; set; }
-        public double D { get; set; }
-        public string Comments { get; set; }
-        
-        public int Week
-        {
-            get
-            {
-                CultureInfo ciGetNumber = CultureInfo.CurrentCulture;
-                return ciGetNumber.Calendar.GetWeekOfYear(Date, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday); 
-            }
-        }
 
-        public double TWH
-        {
-            get
-            {
-                return LOW + OT + D;
-            }
-        }
-
-
-        /// <summary>
-        /// Default constructor. Builds data for a single line of the report
-        /// </summary>
-        /// <param name="_date"></param>
-        /// <param name="_scheduledTime"></param>
-        public Joshua(DateTime _date, string _scheduledTime)
-        {
-            Date = _date;
-            ScheduledTime = _scheduledTime;
-        }
-
-        public Joshua()
-        {
-            
-        }
-    }*/
 
     public class Joshua
     {
@@ -96,8 +50,27 @@ namespace TimeCard
         public string EmpName { get; set; }
         public string StartDate { get; set; }
         public string EndDate { get; set; }
+        public string Test { get; set; }
     }
 
+
+    public class WeekRangeData
+    {
+        WeeklyTotalTableAdapter adpt = new TimeCardDataSet1TableAdapters.WeeklyTotalTableAdapter();
+        public DateTime week1;
+        public DateTime week2;
+        public WeekRangeData()
+        {
+            var weeks = adpt.GetDistinctWeeks();
+            try
+            {
+                week1 = weeks[0].Week.Date;
+                week2 = weeks[1].Week.Date;
+            }
+            catch { }
+
+        }
+    }
     /// <summary>
     /// Employee Report Objects are basically a list of Joshuas. Joshuas contain the core data that is displayed
     /// </summary>

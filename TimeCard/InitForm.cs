@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
 using System.Globalization;
-
+using Microsoft.Reporting.WinForms;
 namespace TimeCard
 {
     public partial class InitForm : Form
@@ -51,7 +51,7 @@ namespace TimeCard
                 {
                     if (!trans.IsLOWNull())
                     {
-                        report.Add(new Joshua
+                        Joshua toAdd = new Joshua
                         {
                             Date = trans.LogDate,
                             InTime = trans.IsLogInNull() ? "" : trans.LogIn.ToString("hh:mm tt"),
@@ -64,7 +64,10 @@ namespace TimeCard
                             ScheduledTime = trans.IsLogInNull() ? "" : trans.LogIn.ToString("hh:mm tt"),
                             Comments = "",
                             isUtah = !isCalifornia
-                        });
+                        };
+
+                        //TODO: This is where I could make adjustments to the Joshua's PayTime
+                        report.Add(toAdd);
                     }
                 }
 
@@ -120,11 +123,15 @@ namespace TimeCard
 
                 // add the employee detail to the report
                 this.reportViewer1.LocalReport.DataSources.Add(
-                    new Microsoft.Reporting.WinForms.ReportDataSource("EmployeeSet", (object)emps));
+                new Microsoft.Reporting.WinForms.ReportDataSource("EmployeeSet", (object)emps));
 
+                //add the week range detail to the report
+                //TODO: Figure out how to link this datasource with the report viewer
+                var weekData = new List<WeekRangeData>();
+                this.reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("WeekSet", (object) weekData));
+                
                 // refresh the report
                 this.reportViewer1.RefreshReport();
-                
             }
         }
 
@@ -171,6 +178,11 @@ namespace TimeCard
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Environment.Exit(0);
+        }
+
+        private void bindingSource1_CurrentChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

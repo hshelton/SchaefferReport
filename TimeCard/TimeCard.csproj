@@ -118,6 +118,7 @@
     <None Include="Properties\DataSources\DayReportObject.datasource" />
     <None Include="Properties\DataSources\EmployeeDetails.datasource" />
     <None Include="Properties\DataSources\Joshua.datasource" />
+    <None Include="Properties\DataSources\ReportTimeRange.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
