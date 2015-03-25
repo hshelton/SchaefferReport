@@ -6,33 +6,33 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>0.76215in</Width>
+              <Width>0.94406in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.76215in</Width>
+              <Width>0.94406in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.76215in</Width>
+              <Width>0.94406in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.76215in</Width>
+              <Width>0.94406in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1in</Width>
+              <Width>1.18191in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.76215in</Width>
+              <Width>0.94406in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.76215in</Width>
+              <Width>0.94406in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.76215in</Width>
+              <Width>1.08989in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.25149in</Height>
+              <Height>0.27959in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -277,7 +277,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.25149in</Height>
+              <Height>0.27959in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -522,7 +522,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.25149in</Height>
+              <Height>0.27959in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -767,7 +767,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.25149in</Height>
+              <Height>0.19625in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -1024,7 +1024,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.25149in</Height>
+              <Height>0.27959in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -1216,7 +1216,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.25149in</Height>
+              <Height>0.15459in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -1473,7 +1473,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.25149in</Height>
+              <Height>0.27959in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -1735,7 +1735,7 @@
           <TablixMembers>
             <TablixMember>
               <TablixHeader>
-                <Size>0.76215in</Size>
+                <Size>0.94406in</Size>
                 <CellContents>
                   <Textbox Name="Textbox143">
                     <CanGrow>true</CanGrow>
@@ -1793,7 +1793,7 @@
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>0.76215in</Size>
+                    <Size>0.94406in</Size>
                     <CellContents>
                       <Textbox Name="Date">
                         <CanGrow>true</CanGrow>
@@ -1834,7 +1834,7 @@
                 </TablixMember>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>0.76215in</Size>
+                    <Size>0.94406in</Size>
                     <CellContents>
                       <Textbox Name="Textbox145">
                         <CanGrow>true</CanGrow>
@@ -1875,7 +1875,7 @@
                 </TablixMember>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>0.76215in</Size>
+                    <Size>0.94406in</Size>
                     <CellContents>
                       <Textbox Name="Textbox146">
                         <CanGrow>true</CanGrow>
@@ -1916,7 +1916,7 @@
                 </TablixMember>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>0.76215in</Size>
+                    <Size>0.94406in</Size>
                     <CellContents>
                       <Textbox Name="Textbox147">
                         <CanGrow>true</CanGrow>
@@ -1959,7 +1959,7 @@
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>0.76215in</Size>
+                <Size>0.94406in</Size>
                 <CellContents>
                   <Textbox Name="Textbox148">
                     <CanGrow>true</CanGrow>
@@ -1997,10 +1997,10 @@
         </TablixRowHierarchy>
         <RepeatRowHeaders>true</RepeatRowHeaders>
         <DataSetName>TransactionSet</DataSetName>
-        <Top>0.12028in</Top>
-        <Left>0.13542in</Left>
-        <Height>1.76043in</Height>
-        <Width>7.0972in</Width>
+        <Top>0.06944in</Top>
+        <Left>0.19619in</Left>
+        <Height>1.74877in</Height>
+        <Width>8.88018in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -2008,13 +2008,13 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>5.80083in</Height>
+    <Height>6.7in</Height>
     <Style />
   </Body>
-  <Width>7.23262in</Width>
+  <Width>9.18054in</Width>
   <Page>
     <PageHeader>
-      <Height>2.00001in</Height>
+      <Height>2.13543in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -2035,8 +2035,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox6</rd:DefaultName>
-          <Top>0.13194in</Top>
-          <Left>0.17708in</Left>
+          <Top>0.12847in</Top>
+          <Left>0.19619in</Left>
           <Height>0.22222in</Height>
           <Width>2.20139in</Width>
           <Style>
@@ -2121,8 +2121,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox8</rd:DefaultName>
-          <Top>0.39583in</Top>
-          <Left>0.17708in</Left>
+          <Top>0.39236in</Top>
+          <Left>0.19619in</Left>
           <Height>0.79861in</Height>
           <Width>2.20139in</Width>
           <ZIndex>1</ZIndex>
@@ -2173,10 +2173,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox10</rd:DefaultName>
-          <Top>1.30556in</Top>
-          <Left>0.17708in</Left>
+          <Top>1.30209in</Top>
+          <Left>0.19619in</Left>
           <Height>0.34375in</Height>
-          <Width>5.72223in</Width>
+          <Width>3.00694in</Width>
           <ZIndex>2</ZIndex>
           <Style>
             <Border>
@@ -2206,8 +2206,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox12</rd:DefaultName>
-          <Top>1.7639in</Top>
-          <Left>0.13542in</Left>
+          <Top>1.76043in</Top>
+          <Left>0.15453in</Left>
           <Height>0.19444in</Height>
           <Width>0.77778in</Width>
           <ZIndex>3</ZIndex>
@@ -2239,8 +2239,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox12</rd:DefaultName>
-          <Top>1.7639in</Top>
-          <Left>0.96875in</Left>
+          <Top>1.76043in</Top>
+          <Left>0.98786in</Left>
           <Height>0.19444in</Height>
           <Width>0.77778in</Width>
           <ZIndex>4</ZIndex>
@@ -2272,8 +2272,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox12</rd:DefaultName>
-          <Top>1.7639in</Top>
-          <Left>1.81598in</Left>
+          <Top>1.76043in</Top>
+          <Left>1.83509in</Left>
           <Height>0.19444in</Height>
           <Width>0.77778in</Width>
           <ZIndex>5</ZIndex>
@@ -2305,10 +2305,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox12</rd:DefaultName>
-          <Top>1.7639in</Top>
-          <Left>2.63542in</Left>
+          <Top>1.76043in</Top>
+          <Left>2.65453in</Left>
           <Height>0.19444in</Height>
-          <Width>3.22223in</Width>
+          <Width>1.31075in</Width>
           <ZIndex>6</ZIndex>
           <Style>
             <Border>
@@ -2320,39 +2320,16 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
-        <Textbox Name="Textbox2">
+        <Textbox Name="Textbox21">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
           <Paragraphs>
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Legend: </Value>
-                  <Style>
-                    <FontSize>8pt</FontSize>
-                    <FontWeight>Bold</FontWeight>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
                   <Value>LOW - Length of Work</Value>
                   <Style>
-                    <FontSize>8pt</FontSize>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>TWH - Total Work Hours</Value>
-                  <Style>
-                    <FontSize>8pt</FontSize>
+                    <FontSize>7pt</FontSize>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -2363,7 +2340,7 @@
                 <TextRun>
                   <Value>OT - Over Time</Value>
                   <Style>
-                    <FontSize>8pt</FontSize>
+                    <FontSize>7pt</FontSize>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -2372,7 +2349,181 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>D - Night Differential</Value>
+                  <Value>TWH - Total Work Hours</Value>
+                  <Style>
+                    <FontSize>7pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>L/U - Lates</Value>
+                  <Style>
+                    <FontSize>7pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>         Under Time</Value>
+                  <Style>
+                    <FontSize>7pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>ND - Night Differntial</Value>
+                  <Style>
+                    <FontSize>7pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>RD - Restday</Value>
+                  <Style>
+                    <FontSize>7pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>HRD - Holiday</Value>
+                  <Style>
+                    <FontSize>7pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>          Restday</Value>
+                  <Style>
+                    <FontSize>7pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox8</rd:DefaultName>
+          <Top>0.39236in</Top>
+          <Left>5.78509in</Left>
+          <Height>1.25348in</Height>
+          <Width>1.25733in</Width>
+          <ZIndex>7</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox22">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>WD - Whole Day</Value>
+                  <Style>
+                    <FontSize>7pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>HD - Half Day</Value>
+                  <Style>
+                    <FontSize>7pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>HDL - Half Day Leave</Value>
+                  <Style>
+                    <FontSize>7pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>SH - Special Holiday</Value>
+                  <Style>
+                    <FontSize>7pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>LH - Legal Holiday</Value>
+                  <Style>
+                    <FontSize>7pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox8</rd:DefaultName>
+          <Top>0.39236in</Top>
+          <Left>7.05632in</Left>
+          <Height>1.25348in</Height>
+          <Width>1.25733in</Width>
+          <ZIndex>8</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox26">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Legend:</Value>
                   <Style>
                     <FontSize>8pt</FontSize>
                   </Style>
@@ -2381,12 +2532,12 @@
               <Style />
             </Paragraph>
           </Paragraphs>
-          <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>0.13194in</Top>
-          <Left>3.31125in</Left>
-          <Height>1.0625in</Height>
-          <Width>2.58806in</Width>
-          <ZIndex>7</ZIndex>
+          <rd:DefaultName>Textbox8</rd:DefaultName>
+          <Top>0.13888in</Top>
+          <Left>5.78509in</Left>
+          <Height>0.21181in</Height>
+          <Width>2.52855in</Width>
+          <ZIndex>9</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>

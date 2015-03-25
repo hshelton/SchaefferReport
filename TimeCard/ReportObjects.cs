@@ -53,7 +53,6 @@ namespace TimeCard
         public string Test { get; set; }
     }
 
-
     public class WeekRangeData
     {
         WeeklyTotalTableAdapter adpt = new TimeCardDataSet1TableAdapters.WeeklyTotalTableAdapter();
@@ -68,7 +67,6 @@ namespace TimeCard
                 week2 = weeks[1].Week.Date;
             }
             catch { }
-
         }
     }
     /// <summary>
@@ -86,7 +84,6 @@ namespace TimeCard
             _employee = employee;
             generateReport(employee);
         }
-
 
         /// <summary>
         /// Uses the dbKey to run queries on the database. These queries each create new Joshuas, which are then
@@ -199,7 +196,6 @@ namespace TimeCard
     
         }
 
-
         private void AddWeekAsEntry(TimeCardDataSet1.WeeklyTotalDataTable tbl, int weekNo)
         {
             var wLow = tbl[weekNo].wLOW;
@@ -214,9 +210,7 @@ namespace TimeCard
 
         public List<Joshua> GetDayReports()
         {
-
             return e_days;
-
         }
 
     }
