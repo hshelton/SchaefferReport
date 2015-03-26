@@ -133,7 +133,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>LOW</Value>
+                              <Value>Pay Time</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -163,7 +163,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Pay Time</Value>
+                              <Value>LOW</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -223,7 +223,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>D</Value>
+                              <Value>ND</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -371,21 +371,21 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="LOW">
+                    <Textbox Name="PayTime2">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Round(Fields!LOW.Value,2)</Value>
+                              <Value>=Fields!PayTime.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>LOW</rd:DefaultName>
+                      <rd:DefaultName>PayTime2</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -408,7 +408,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!PayTime.Value</Value>
+                              <Value>=Round(Fields!LOW.Value,2)</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -623,7 +623,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=System.Math.Round(Sum(Fields!LOW.Value), 2)</Value>
+                              <Value />
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -653,7 +653,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
+                              <Value>=System.Math.Round(Sum(Fields!LOW.Value), 2)</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -1072,7 +1072,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Round(Sum(Fields!LOW.Value)-Sum(Fields!OT.Value),2)</Value>
+                              <Value />
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -1102,8 +1102,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
-                              <Style />
+                              <Value>=Round(Sum(Fields!LOW.Value)-Sum(Fields!OT.Value),2)</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1133,7 +1135,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Round(Sum(Fields!OT.Value),2)</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1163,7 +1167,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Round(Sum(Fields!D.Value),2)</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1193,7 +1199,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Round(Sum(Fields!TWH.Value),2)</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1544,8 +1552,11 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Total</Value>
-                              <Style />
+                              <Value>TOTALS</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>Underline</TextDecoration>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1574,7 +1585,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Round(Sum(Fields!LOW.Value)-Sum(Fields!OT.Value),2)</Value>
+                              <Value />
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -1604,8 +1615,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
-                              <Style />
+                              <Value>=Round(Sum(Fields!LOW.Value)-Sum(Fields!OT.Value),2)</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1635,7 +1648,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Round(Sum(Fields!OT.Value), 2)</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1665,7 +1680,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=System.Math.Round(Sum(Fields!D.Value), 2)</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1695,7 +1713,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Round(Sum(Fields!TWH.Value),2)</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                                <TextDecoration>None</TextDecoration>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1999,8 +2020,8 @@
         <DataSetName>TransactionSet</DataSetName>
         <Top>0.06944in</Top>
         <Left>0.19619in</Left>
-        <Height>1.74877in</Height>
-        <Width>8.88018in</Width>
+        <Height>1.74879in</Height>
+        <Width>8.88022in</Width>
         <Style>
           <Border>
             <Style>None</Style>

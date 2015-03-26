@@ -20,6 +20,7 @@ namespace TimeCard
 
         public InitForm()
         {
+            //TODO: this needs to be legit data. OK to hard code this info? hopefully shifts never change..
             ShiftNoToStart.Add(0, new DateTime(1,1,1, 6, 50, 0));
             ShiftNoToStart.Add(1, new DateTime(1,1,1, 6, 50, 0));
             ShiftNoToStart.Add(2, new DateTime(1,1,1, 6, 50, 0));
@@ -75,14 +76,18 @@ namespace TimeCard
                             InTime = trans.IsLogInNull() ? "" : trans.LogIn.ToString("hh:mm tt"),
                             OutTime = trans.IsLogOutNull() ? "" : trans.LogOut.ToString("hh:mm tt"),
                             ActualTime = "",
-                            LOW = trans.IsLOWNull() ? 0 : trans.LOW,
+                           // LOW = trans.IsLOWNull() ? 0 : trans.LOW, Hayden: the LOW they are interested in is length of paid time
                             OT = 0,
                             D = 0,
                             PayTime = "",
-                            ScheduledTime = trans.IsLogInNull() ? "" : trans.LogIn.ToString("hh:mm tt"),
+                            ScheduledTime = trans.IsLogInNull() ? "" : shiftStart.ToString("hh:mm tt"),
                             Comments = "",
                             isUtah = !isCalifornia
                         };
+
+                        //these variable will hold a date times for employees paid start and end times
+                        DateTime LOWStart = new DateTime();
+                        DateTime LOWEnd = new DateTime();
 
                         //make adjustments to the Joshua's log in time to calculate the pay time
                         if (!trans.IsLogInNull())
@@ -92,22 +97,29 @@ namespace TimeCard
                             if (shiftStart > compareTime)
                             {
                                 toAdd.PayTime += shiftStart.ToString("hh:mm tt");
+                                LOWStart = shiftStart;
                             }
                             else // then they are payed from the closest 15 minute interval after they arrived
                             {
-                                var payStart = roundToNearest15(trans.LogIn).ToString("hh:mm tt");
+                                var roundedStart = roundToNearest15(trans.LogIn);
+                                var payStart = roundedStart.ToString("hh:mm tt");
                                 toAdd.PayTime += payStart;
+                                LOWStart = roundedStart;
                             }
                         }
 
                         //make adjustments to the Joshua's log out time to calculate the pay time
                         if (!trans.IsLogOutNull())
                         {
-                            var roundedTime = roundToNearest15(trans.LogOut);
-                            toAdd.PayTime += "\n" + roundedTime.ToString("hh:mm tt");
+                            var roundedEnd = roundToNearest15(trans.LogOut);
+                            toAdd.PayTime += "\n" + roundedEnd.ToString("hh:mm tt");
+                            LOWEnd = roundedEnd;
+                        } 
+                        
+                        TimeSpan LOWSpan = (LOWEnd - LOWStart);
+                        double LOWPaid = Math.Round(LOWSpan.Hours + (double)LOWSpan.Minutes / 60, 2);
 
-
-                        }
+                        toAdd.LOW = LOWPaid;
 
                         report.Add(toAdd);
                     }
@@ -168,7 +180,7 @@ namespace TimeCard
                 new Microsoft.Reporting.WinForms.ReportDataSource("EmployeeSet", (object)emps));
 
                 //add the week range detail to the report
-                //TODO: Figure out how to link this datasource with the report viewer
+                //TODO: Need to figure out how to bind this additional data source to the report
                 var weekData = new List<WeekRangeData>();
                 this.reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("WeekSet", (object) weekData));
 
@@ -217,7 +229,7 @@ namespace TimeCard
             {
                 int mult = dt.Minute / 15; //how many 15 minute intervals to add for the employee
                 if (dt.Minute % 15 >= 8)
-                    temp = temp.AddMinutes(mult + 1 * 15);
+                    temp = temp.AddMinutes((mult + 1) * 15);
                 else
                 {
                     int what = mult * 15;
@@ -251,8 +263,8 @@ namespace TimeCard
         private void saveSelectedToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Microsoft.Reporting.WinForms.RenderingExtension[] extensions = this.reportViewer1.LocalReport.ListRenderingExtensions();
-            var first = extensions[0];
-            this.reportViewer1.ExportDialog(first);
+            var excel = extensions[1];
+            this.reportViewer1.ExportDialog(excel);
         }
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
