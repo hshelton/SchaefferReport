@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource4 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InitForm));
             this.JoshuaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.EmployeeDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -42,12 +42,12 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printAll = new System.Windows.Forms.ToolStripMenuItem();
             this.printSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.printAll = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.JoshuaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EmployeeDetailsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).BeginInit();
@@ -72,7 +72,7 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(12, 36);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(1161, 21);
+            this.comboBox1.Size = new System.Drawing.Size(961, 21);
             this.comboBox1.TabIndex = 0;
             this.comboBox1.ValueMember = "EmployeeID";
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
@@ -97,17 +97,17 @@
             this.reportViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            reportDataSource3.Name = "TransactionSet";
-            reportDataSource3.Value = this.JoshuaBindingSource;
-            reportDataSource4.Name = "EmployeeSet";
-            reportDataSource4.Value = this.EmployeeDetailsBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource3);
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource4);
+            reportDataSource1.Name = "TransactionSet";
+            reportDataSource1.Value = this.JoshuaBindingSource;
+            reportDataSource2.Name = "EmployeeSet";
+            reportDataSource2.Value = this.EmployeeDetailsBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "TimeCard.EmployeeReport.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(11, 90);
-            this.reportViewer1.Margin = new System.Windows.Forms.Padding(2, 2, 10, 2);
+            this.reportViewer1.Margin = new System.Windows.Forms.Padding(15, 2, 10, 2);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(1167, 810);
+            this.reportViewer1.Size = new System.Drawing.Size(967, 860);
             this.reportViewer1.TabIndex = 1;
             this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
             // 
@@ -116,7 +116,7 @@
             this.menuStrip1.BackColor = System.Drawing.SystemColors.Control;
             this.menuStrip1.Location = new System.Drawing.Point(0, 25);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1184, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(984, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -127,7 +127,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(1184, 25);
+            this.menuStrip2.Size = new System.Drawing.Size(984, 25);
             this.menuStrip2.TabIndex = 3;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -142,6 +142,12 @@
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(39, 21);
             this.fileToolStripMenuItem.Text = "File";
+            // 
+            // printAll
+            // 
+            this.printAll.Name = "printAll";
+            this.printAll.Size = new System.Drawing.Size(156, 22);
+            this.printAll.Text = "Print All";
             // 
             // printSelectedToolStripMenuItem
             // 
@@ -184,19 +190,13 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // printAll
-            // 
-            this.printAll.Name = "printAll";
-            this.printAll.Size = new System.Drawing.Size(156, 22);
-            this.printAll.Text = "Print All";
-            // 
             // InitForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(1184, 911);
+            this.ClientSize = new System.Drawing.Size(984, 961);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.reportViewer1);
@@ -206,7 +206,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip2;
             this.Name = "InitForm";
-            this.Text = "Schaeffer Industries";
+            this.Text = "Schaeffer Industries Timecard Report";
             this.Load += new System.EventHandler(this.InitForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.JoshuaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EmployeeDetailsBindingSource)).EndInit();

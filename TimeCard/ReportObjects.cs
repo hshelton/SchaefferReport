@@ -66,8 +66,8 @@ namespace TimeCard
             var weeks = adpt.GetDistinctWeeks();
             try
             {
-                week1 = weeks[0].Week.Date.AddDays(-7);
-                week2 = weeks[1].Week.Date.AddDays(-7);
+                week2 = weeks[0].Week.Date.AddDays(-6);
+                week1 = weeks[1].Week;
             }
             catch { }
         }
@@ -207,7 +207,6 @@ namespace TimeCard
             //format week nicely.
             string WeekTrimmed = week.ToString().Substring(0, week.ToString().IndexOf(' '));
             //e_days.Add(new Joshua { Date = "Pay Week Ending: " + WeekTrimmed, OT = WOT, TotalHours = wLow });
-
 
         }
 
