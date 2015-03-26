@@ -51,6 +51,9 @@ namespace TimeCard
         public string StartDate { get; set; }
         public string EndDate { get; set; }
         public string Test { get; set; }
+        public string PeriodStart { get; set; }
+        public string PeriodEnd { get; set; }
+
     }
 
     public class WeekRangeData
@@ -63,8 +66,8 @@ namespace TimeCard
             var weeks = adpt.GetDistinctWeeks();
             try
             {
-                week1 = weeks[0].Week.Date;
-                week2 = weeks[1].Week.Date;
+                week1 = weeks[0].Week.Date.AddDays(-7);
+                week2 = weeks[1].Week.Date.AddDays(-7);
             }
             catch { }
         }

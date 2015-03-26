@@ -16,22 +16,35 @@ namespace TimeCard
     {
         //association between employee shift numbers and scheduled start times
         private Dictionary<int, DateTime> ShiftNoToStart = new Dictionary<int, DateTime>();
-        
+        private Dictionary<int, DateTime> ShiftNoToEnd = new Dictionary<int, DateTime>();
 
         public InitForm()
         {
-            //TODO: this needs to be legit data. OK to hard code this info? hopefully shifts never change..
-            ShiftNoToStart.Add(0, new DateTime(1,1,1, 6, 50, 0));
-            ShiftNoToStart.Add(1, new DateTime(1,1,1, 6, 50, 0));
-            ShiftNoToStart.Add(2, new DateTime(1,1,1, 6, 50, 0));
-            ShiftNoToStart.Add(3, new DateTime(1, 1, 1, 6, 50, 0));
-            ShiftNoToStart.Add(4, new DateTime(1, 1, 1, 6, 50, 0));
-            ShiftNoToStart.Add(5, new DateTime(1, 1, 1, 6, 50, 0));
-            ShiftNoToStart.Add(6, new DateTime(1, 1, 1, 6, 50, 0));
-            ShiftNoToStart.Add(7, new DateTime(1, 1, 1, 6, 50, 0));
-            ShiftNoToStart.Add(8, new DateTime(1, 1, 1, 6, 50, 0));
-            ShiftNoToStart.Add(9, new DateTime(1, 1, 1, 6, 50, 0));
-            ShiftNoToStart.Add(10, new DateTime(1, 1, 1, 6, 50, 0));
+            //Shift 0 is the day shift, the rest of the shifts are on a clock in time basis
+            ShiftNoToStart.Add(0, new DateTime(1,1,1,6,50,0));
+            ShiftNoToStart.Add(1, new DateTime(1,1,1)); //shifts other than day shift start and end at midnight
+            ShiftNoToStart.Add(2, new DateTime(1,1,1));
+            ShiftNoToStart.Add(3, new DateTime(1,1,1));
+            ShiftNoToStart.Add(4, new DateTime(1,1,1));
+            ShiftNoToStart.Add(5, new DateTime(1,1,1));
+            ShiftNoToStart.Add(6, new DateTime(1,1,1));
+            ShiftNoToStart.Add(7, new DateTime(1,1,1));
+            ShiftNoToStart.Add(8, new DateTime(1,1,1));
+            ShiftNoToStart.Add(9, new DateTime(1,1,1));
+            ShiftNoToStart.Add(10, new DateTime(1,1,1));
+
+            ShiftNoToEnd.Add(0, new DateTime(1, 1, 1, 15, 30, 0));
+            ShiftNoToEnd.Add(1, new DateTime(1, 1, 1));
+            ShiftNoToEnd.Add(2, new DateTime(1, 1, 1));
+            ShiftNoToEnd.Add(3, new DateTime(1, 1, 1));
+            ShiftNoToEnd.Add(4, new DateTime(1, 1, 1));
+            ShiftNoToEnd.Add(5, new DateTime(1, 1, 1));
+            ShiftNoToEnd.Add(6, new DateTime(1, 1, 1));
+            ShiftNoToEnd.Add(7, new DateTime(1, 1, 1));
+            ShiftNoToEnd.Add(8, new DateTime(1, 1, 1));
+            ShiftNoToEnd.Add(9, new DateTime(1, 1, 1));
+            ShiftNoToEnd.Add(10, new DateTime(1, 1, 1));
+
             InitializeComponent();
         }
 
@@ -53,6 +66,9 @@ namespace TimeCard
                 var employee = (from ep in this.timeCardDataSet1.Employees
                                 where ep.EmployeeID == comboBox1.SelectedValue.ToString()
                                 select ep).First();
+
+                //get the week range data to add to the employee object
+                WeekRangeData weeksForPeriod = new WeekRangeData();
 
                 //get the shift start time based off their employee number
                 DateTime shiftStart = ShiftNoToStart[employee.Shift];
@@ -80,7 +96,7 @@ namespace TimeCard
                             OT = 0,
                             D = 0,
                             PayTime = "",
-                            ScheduledTime = trans.IsLogInNull() ? "" : shiftStart.ToString("hh:mm tt"),
+                           // ScheduledTime = trans.IsLogInNull() ? "" : shiftStart.ToString("hh:mm tt"),
                             Comments = "",
                             isUtah = !isCalifornia
                         };
@@ -114,8 +130,18 @@ namespace TimeCard
                             var roundedEnd = roundToNearest15(trans.LogOut);
                             toAdd.PayTime += "\n" + roundedEnd.ToString("hh:mm tt");
                             LOWEnd = roundedEnd;
-                        } 
-                        
+                        }
+
+                        //day shift employees
+                        if (employee.Shift == 0)
+                        {
+                            toAdd.ScheduledTime = ShiftNoToStart[0].ToString("hh:mm tt");
+                            toAdd.ScheduledTime += "\n" + ShiftNoToEnd[0].ToString("hh:mm tt");
+                        }
+                        else
+                        {
+                            toAdd.ScheduledTime = toAdd.PayTime;
+                        }
                         TimeSpan LOWSpan = (LOWEnd - LOWStart);
                         double LOWPaid = Math.Round(LOWSpan.Hours + (double)LOWSpan.Minutes / 60, 2);
                         toAdd.LOW = LOWPaid;
@@ -170,7 +196,9 @@ namespace TimeCard
                     EmployeeID = employee.EmployeeID,
                     EmpName = employee.EmpName,
                     StartDate = DateTime.Now.ToShortDateString(),
-                    EndDate = DateTime.Now.AddDays(7).ToShortDateString()
+                    EndDate = DateTime.Now.AddDays(7).ToShortDateString(),
+                    PeriodEnd = weeksForPeriod.week1.ToShortDateString(), 
+                    PeriodStart = weeksForPeriod.week2.ToShortDateString()
                 });
 
                 // add the employee detail to the report
@@ -192,6 +220,8 @@ namespace TimeCard
                 this.reportViewer1.RefreshReport();
             }
         }
+
+
 
         private void InitForm_Load(object sender, EventArgs e)
         {
