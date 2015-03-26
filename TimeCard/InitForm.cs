@@ -118,9 +118,7 @@ namespace TimeCard
                         
                         TimeSpan LOWSpan = (LOWEnd - LOWStart);
                         double LOWPaid = Math.Round(LOWSpan.Hours + (double)LOWSpan.Minutes / 60, 2);
-
                         toAdd.LOW = LOWPaid;
-
                         report.Add(toAdd);
                     }
                 }
@@ -227,7 +225,7 @@ namespace TimeCard
             }
             else
             {
-                int mult = dt.Minute / 15; //how many 15 minute intervals to add for the employee
+                int mult = dt.Minute / 15; 
                 if (dt.Minute % 15 >= 8)
                     temp = temp.AddMinutes((mult + 1) * 15);
                 else
@@ -274,6 +272,26 @@ namespace TimeCard
 
         private void bindingSource1_CurrentChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                comboBox1.SelectedIndex = comboBox1.SelectedIndex + 1;
+            }
+            catch { }
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                comboBox1.SelectedIndex = comboBox1.SelectedIndex - 1;
+            }
+            catch { }
 
         }
     }

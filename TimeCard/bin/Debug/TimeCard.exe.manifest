@@ -74,14 +74,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TimeCard.exe" size="320512">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TimeCard.exe" size="344064">
       <assemblyIdentity name="TimeCard" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>w+J+YquXcMijZ2Ecnv3DVoQtlZk=</dsig:DigestValue>
+        <dsig:DigestValue>glbdl2QlluKmlr2WogfB/Nbixi8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
