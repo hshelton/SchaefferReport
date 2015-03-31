@@ -51,8 +51,10 @@ namespace TimeCard
         public string StartDate { get; set; }
         public string EndDate { get; set; }
         public string Test { get; set; }
-    }
+        public string PeriodStart { get; set; }
+        public string PeriodEnd { get; set; }
 
+    }
 
     public class WeekRangeData
     {
@@ -64,11 +66,10 @@ namespace TimeCard
             var weeks = adpt.GetDistinctWeeks();
             try
             {
-                week1 = weeks[0].Week.Date;
-                week2 = weeks[1].Week.Date;
+                week2 = weeks[0].Week.Date.AddDays(-6);
+                week1 = weeks[1].Week;
             }
             catch { }
-
         }
     }
     /// <summary>
@@ -86,7 +87,6 @@ namespace TimeCard
             _employee = employee;
             generateReport(employee);
         }
-
 
         /// <summary>
         /// Uses the dbKey to run queries on the database. These queries each create new Joshuas, which are then
@@ -199,7 +199,6 @@ namespace TimeCard
     
         }
 
-
         private void AddWeekAsEntry(TimeCardDataSet1.WeeklyTotalDataTable tbl, int weekNo)
         {
             var wLow = tbl[weekNo].wLOW;
@@ -209,14 +208,11 @@ namespace TimeCard
             string WeekTrimmed = week.ToString().Substring(0, week.ToString().IndexOf(' '));
             //e_days.Add(new Joshua { Date = "Pay Week Ending: " + WeekTrimmed, OT = WOT, TotalHours = wLow });
 
-
         }
 
         public List<Joshua> GetDayReports()
         {
-
             return e_days;
-
         }
 
     }

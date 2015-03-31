@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InitForm));
             this.JoshuaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.EmployeeDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -41,9 +42,12 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printAll = new System.Windows.Forms.ToolStripMenuItem();
             this.printSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.JoshuaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EmployeeDetailsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).BeginInit();
@@ -66,9 +70,9 @@
             this.comboBox1.DataSource = this.employeesBindingSource;
             this.comboBox1.DisplayMember = "EmpName";
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(11, 25);
+            this.comboBox1.Location = new System.Drawing.Point(12, 36);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(1146, 21);
+            this.comboBox1.Size = new System.Drawing.Size(961, 21);
             this.comboBox1.TabIndex = 0;
             this.comboBox1.ValueMember = "EmployeeID";
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
@@ -100,74 +104,109 @@
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "TimeCard.EmployeeReport.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(11, 51);
-            this.reportViewer1.Margin = new System.Windows.Forms.Padding(2);
+            this.reportViewer1.Location = new System.Drawing.Point(11, 90);
+            this.reportViewer1.Margin = new System.Windows.Forms.Padding(15, 2, 10, 2);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(1145, 688);
+            this.reportViewer1.Size = new System.Drawing.Size(967, 860);
             this.reportViewer1.TabIndex = 1;
             this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Location = new System.Drawing.Point(0, 24);
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.Control;
+            this.menuStrip1.Location = new System.Drawing.Point(0, 25);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1162, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(984, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // menuStrip2
             // 
+            this.menuStrip2.BackColor = System.Drawing.SystemColors.Control;
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(1162, 24);
+            this.menuStrip2.Size = new System.Drawing.Size(984, 25);
             this.menuStrip2.TabIndex = 3;
             this.menuStrip2.Text = "menuStrip2";
             // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.printAll,
             this.printSelectedToolStripMenuItem,
             this.saveSelectedToolStripMenuItem,
             this.quitToolStripMenuItem});
+            this.fileToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(39, 21);
             this.fileToolStripMenuItem.Text = "File";
+            // 
+            // printAll
+            // 
+            this.printAll.Name = "printAll";
+            this.printAll.Size = new System.Drawing.Size(156, 22);
+            this.printAll.Text = "Print All";
             // 
             // printSelectedToolStripMenuItem
             // 
             this.printSelectedToolStripMenuItem.Name = "printSelectedToolStripMenuItem";
-            this.printSelectedToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.printSelectedToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.printSelectedToolStripMenuItem.Text = "Print Selected";
             this.printSelectedToolStripMenuItem.Click += new System.EventHandler(this.printSelectedToolStripMenuItem_Click);
             // 
             // saveSelectedToolStripMenuItem
             // 
             this.saveSelectedToolStripMenuItem.Name = "saveSelectedToolStripMenuItem";
-            this.saveSelectedToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.saveSelectedToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.saveSelectedToolStripMenuItem.Text = "Save Selected";
             this.saveSelectedToolStripMenuItem.Click += new System.EventHandler(this.saveSelectedToolStripMenuItem_Click);
             // 
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.quitToolStripMenuItem.Text = "Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(157, 63);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(139, 22);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Next";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(12, 63);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(139, 22);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "Previous";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // InitForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1162, 727);
+            this.AutoSize = true;
+            this.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.ClientSize = new System.Drawing.Size(984, 961);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.menuStrip2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip2;
             this.Name = "InitForm";
-            this.Text = "Select an Employee";
+            this.Text = "Schaeffer Industries Timecard Report";
             this.Load += new System.EventHandler(this.InitForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.JoshuaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EmployeeDetailsBindingSource)).EndInit();
@@ -195,5 +234,8 @@
         private System.Windows.Forms.ToolStripMenuItem saveSelectedToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
         private System.Windows.Forms.BindingSource EmployeeDetailsBindingSource;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ToolStripMenuItem printAll;
     }
 }
