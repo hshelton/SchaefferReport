@@ -14,6 +14,11 @@ namespace TimeCard
 
     public class Joshua
     {
+        // employee information
+        public string EmployeeID { get; set; }
+        public string EmpName { get; set; }
+
+        // transaction information
         public DateTime Date { get; set; }
         public string InTime { get; set; }
         public string OutTime { get; set; }

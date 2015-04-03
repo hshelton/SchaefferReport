@@ -48,6 +48,7 @@
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.JoshuaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EmployeeDetailsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).BeginInit();
@@ -70,9 +71,10 @@
             this.comboBox1.DataSource = this.employeesBindingSource;
             this.comboBox1.DisplayMember = "EmpName";
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 36);
+            this.comboBox1.Location = new System.Drawing.Point(18, 55);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(961, 21);
+            this.comboBox1.Size = new System.Drawing.Size(1445, 28);
             this.comboBox1.TabIndex = 0;
             this.comboBox1.ValueMember = "EmployeeID";
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
@@ -104,19 +106,20 @@
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "TimeCard.EmployeeReport.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(11, 90);
-            this.reportViewer1.Margin = new System.Windows.Forms.Padding(15, 2, 10, 2);
+            this.reportViewer1.Location = new System.Drawing.Point(16, 138);
+            this.reportViewer1.Margin = new System.Windows.Forms.Padding(22, 3, 15, 3);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(967, 860);
+            this.reportViewer1.Size = new System.Drawing.Size(1450, 1322);
             this.reportViewer1.TabIndex = 1;
             this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
             // 
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.SystemColors.Control;
-            this.menuStrip1.Location = new System.Drawing.Point(0, 25);
+            this.menuStrip1.Location = new System.Drawing.Point(0, 38);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(984, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
+            this.menuStrip1.Size = new System.Drawing.Size(1476, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -127,7 +130,8 @@
             this.fileToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(984, 25);
+            this.menuStrip2.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
+            this.menuStrip2.Size = new System.Drawing.Size(1476, 38);
             this.menuStrip2.TabIndex = 3;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -140,41 +144,42 @@
             this.quitToolStripMenuItem});
             this.fileToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(39, 21);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(54, 32);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // printAll
             // 
             this.printAll.Name = "printAll";
-            this.printAll.Size = new System.Drawing.Size(156, 22);
+            this.printAll.Size = new System.Drawing.Size(204, 32);
             this.printAll.Text = "Print All";
             // 
             // printSelectedToolStripMenuItem
             // 
             this.printSelectedToolStripMenuItem.Name = "printSelectedToolStripMenuItem";
-            this.printSelectedToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.printSelectedToolStripMenuItem.Size = new System.Drawing.Size(204, 32);
             this.printSelectedToolStripMenuItem.Text = "Print Selected";
             this.printSelectedToolStripMenuItem.Click += new System.EventHandler(this.printSelectedToolStripMenuItem_Click);
             // 
             // saveSelectedToolStripMenuItem
             // 
             this.saveSelectedToolStripMenuItem.Name = "saveSelectedToolStripMenuItem";
-            this.saveSelectedToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.saveSelectedToolStripMenuItem.Size = new System.Drawing.Size(204, 32);
             this.saveSelectedToolStripMenuItem.Text = "Save Selected";
             this.saveSelectedToolStripMenuItem.Click += new System.EventHandler(this.saveSelectedToolStripMenuItem_Click);
             // 
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(204, 32);
             this.quitToolStripMenuItem.Text = "Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(157, 63);
+            this.button1.Location = new System.Drawing.Point(236, 97);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(139, 22);
+            this.button1.Size = new System.Drawing.Size(208, 34);
             this.button1.TabIndex = 4;
             this.button1.Text = "Next";
             this.button1.UseVisualStyleBackColor = true;
@@ -182,21 +187,34 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 63);
+            this.button2.Location = new System.Drawing.Point(18, 97);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(139, 22);
+            this.button2.Size = new System.Drawing.Size(208, 34);
             this.button2.TabIndex = 5;
             this.button2.Text = "Previous";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // button3
+            // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.Location = new System.Drawing.Point(1295, 97);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(171, 34);
+            this.button3.TabIndex = 6;
+            this.button3.Text = "Generate All";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // InitForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(984, 961);
+            this.ClientSize = new System.Drawing.Size(1476, 1478);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.reportViewer1);
@@ -205,6 +223,7 @@
             this.Controls.Add(this.menuStrip2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip2;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "InitForm";
             this.Text = "Schaeffer Industries Timecard Report";
             this.Load += new System.EventHandler(this.InitForm_Load);
@@ -237,5 +256,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ToolStripMenuItem printAll;
+        private System.Windows.Forms.Button button3;
     }
 }
