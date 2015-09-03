@@ -198,10 +198,6 @@ namespace TimeCard
 
             //display weekly totals for first week
             AddWeekAsEntry(weekTB, 1);
-
-
-
-    
         }
 
         private void AddWeekAsEntry(TimeCardDataSet1.WeeklyTotalDataTable tbl, int weekNo)
