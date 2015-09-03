@@ -109,7 +109,7 @@
             reportDataSource2.Value = this.EmployeeDetailsBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "TimeCard.EmployeeReport1.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "TimeCard.EmployeeReport.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(14, 298);
             this.reportViewer1.Margin = new System.Windows.Forms.Padding(22, 3, 15, 3);
             this.reportViewer1.Name = "reportViewer1";
